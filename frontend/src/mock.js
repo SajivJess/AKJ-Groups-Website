@@ -17,10 +17,25 @@ export const mockData = {
       status: "Completed",
       sqft: "250,000",
       units: 45,
+      floors: 28,
+      images: [
+        "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1560184897-ae75f418493e?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&h=600&fit=crop"
+      ],
       image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&h=600&fit=crop",
       video: "https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4",
-      description: "Luxury high-rise residential complex featuring modern architecture and premium amenities.",
-      amenities: ["Swimming Pool", "Gym", "Rooftop Garden", "Parking", "Security"]
+      description: "Luxury high-rise residential complex featuring modern architecture and premium amenities in the heart of Manhattan.",
+      longDescription: "Skyline Residences represents the pinnacle of urban luxury living. This 28-story architectural masterpiece combines cutting-edge design with unparalleled comfort. Each residence features floor-to-ceiling windows, premium finishes, and smart home technology. The building offers world-class amenities including a rooftop infinity pool, state-of-the-art fitness center, and 24/7 concierge services.",
+      amenities: ["Swimming Pool", "Gym", "Rooftop Garden", "Parking", "Security", "Concierge", "Smart Home Tech", "Sky Lounge"],
+      specifications: {
+        architect: "Sterling Architecture Group",
+        contractor: "AKJ Builders",
+        startDate: "January 2022",
+        completionDate: "December 2023",
+        investment: "$125 Million",
+        sustainability: "LEED Gold Certified"
+      }
     },
     {
       id: 2,
@@ -30,9 +45,23 @@ export const mockData = {
       status: "Under Construction", 
       sqft: "180,000",
       floors: 12,
+      images: [
+        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1558618666-4c688155d5a6?w=800&h=600&fit=crop"
+      ],
       image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop",
-      description: "State-of-the-art commercial complex with sustainable design principles.",
-      amenities: ["Conference Rooms", "Food Court", "Parking", "Green Building"]
+      description: "State-of-the-art commercial complex with sustainable design principles and modern office spaces.",
+      longDescription: "Corporate Plaza is designed to be the premier business destination in downtown NY. This innovative commercial complex features flexible office spaces, retail outlets, and dining options. The building incorporates sustainable technologies and provides a collaborative environment for modern businesses.",
+      amenities: ["Conference Rooms", "Food Court", "Parking", "Green Building", "High-Speed Internet", "Executive Lounges"],
+      specifications: {
+        architect: "ProBuild Engineering",
+        contractor: "AKJ Builders",
+        startDate: "June 2023",
+        expectedCompletion: "August 2025",
+        investment: "$95 Million",
+        sustainability: "LEED Platinum Target"
+      }
     },
     {
       id: 3,
@@ -42,9 +71,23 @@ export const mockData = {
       status: "Planning",
       sqft: "120,000",
       units: 24,
+      images: [
+        "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1572120360610-d971b9d7767c?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&h=600&fit=crop"
+      ],
       image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&h=600&fit=crop",
-      description: "Premium riverside villas with panoramic water views and modern facilities.",
-      amenities: ["Private Dock", "Garden", "Clubhouse", "Security"]
+      description: "Premium riverside villas with panoramic water views and modern facilities for luxury living.",
+      longDescription: "Riverside Villas offers an exclusive collection of luxury waterfront homes with direct river access. Each villa is meticulously designed to maximize water views while providing privacy and tranquility. The community features private docks, landscaped gardens, and recreational facilities.",
+      amenities: ["Private Dock", "Garden", "Clubhouse", "Security", "Waterfront Access", "Tennis Court"],
+      specifications: {
+        architect: "Sterling Architecture Group",
+        contractor: "AKJ Builders",
+        startDate: "Planning Phase",
+        expectedCompletion: "2026",
+        investment: "$85 Million",
+        sustainability: "Green Building Certified"
+      }
     }
   ],
 
