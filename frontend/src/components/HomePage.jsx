@@ -213,28 +213,28 @@ const HomePage = () => {
               <div className="text-center">
                 <div className="w-24 h-24 mx-auto mb-6">
                   <img 
-                    src={mockData.testimonials[currentTestimonial].image}
-                    alt={mockData.testimonials[currentTestimonial].name}
+                    src={mockData.testimonials[0].image}
+                    alt={mockData.testimonials[0].name}
                     className="w-full h-full object-cover rounded-full"
                   />
                 </div>
                 
                 <div className="flex justify-center mb-6">
-                  {[...Array(mockData.testimonials[currentTestimonial].rating)].map((_, i) => (
+                  {[...Array(mockData.testimonials[0].rating)].map((_, i) => (
                     <Star key={i} className="text-[#CA8A04] fill-current" size={24} />
                   ))}
                 </div>
 
                 <blockquote className="text-2xl text-[#50535B] italic mb-8 leading-relaxed">
-                  "{mockData.testimonials[currentTestimonial].review}"
+                  "{mockData.testimonials[0].review}"
                 </blockquote>
 
                 <div>
                   <h4 className="text-xl font-bold text-[#CA8A04] mb-1">
-                    {mockData.testimonials[currentTestimonial].name}
+                    {mockData.testimonials[0].name}
                   </h4>
                   <p className="text-[#50535B]">
-                    {mockData.testimonials[currentTestimonial].position} at {mockData.testimonials[currentTestimonial].company}
+                    {mockData.testimonials[0].position} at {mockData.testimonials[0].company}
                   </p>
                 </div>
               </div>
@@ -245,9 +245,8 @@ const HomePage = () => {
               {mockData.testimonials.map((_, index) => (
                 <button
                   key={index}
-                  onClick={() => setCurrentTestimonial(index)}
                   className={`w-3 h-3 rounded-full transition-colors duration-300 ${
-                    index === currentTestimonial ? 'bg-[#CA8A04]' : 'bg-gray-300'
+                    index === 0 ? 'bg-[#CA8A04]' : 'bg-gray-300'
                   }`}
                 />
               ))}
