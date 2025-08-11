@@ -1,42 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { mockData } from '../mock';
-import { Play, ArrowRight, Building, Award, MapPin, Users, Star, Calendar, ExternalLink } from 'lucide-react';
+import { Play, ArrowRight, MapPin, Star, Calendar, Phone } from 'lucide-react';
 import { Button } from './ui/button';
 import { Card } from './ui/card';
 
 const HomePage = () => {
-  const [visibleStats, setVisibleStats] = useState({
-    years: 0,
-    sqft: 0,
-    awards: 0,
-    sites: 0
-  });
-
-  const [currentTestimonial, setCurrentTestimonial] = useState(0);
-
-  useEffect(() => {
-    // Animate stats on component mount
-    const timer = setTimeout(() => {
-      setVisibleStats({
-        years: mockData.stats.yearsInIndustry,
-        sqft: parseFloat(mockData.stats.sqftBuilt),
-        awards: mockData.stats.awardsWon,
-        sites: mockData.stats.activeSites
-      });
-    }, 500);
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  useEffect(() => {
-    // Auto-rotate testimonials
-    const interval = setInterval(() => {
-      setCurrentTestimonial((prev) => (prev + 1) % mockData.testimonials.length);
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
