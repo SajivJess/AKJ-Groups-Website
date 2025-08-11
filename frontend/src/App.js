@@ -1,51 +1,88 @@
-import { useEffect } from "react";
+import React from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import axios from "axios";
+import Navigation from "./components/Navigation";
+import HomePage from "./components/HomePage";
+import WhatsAppButton from "./components/WhatsAppButton";
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
-
-const Home = () => {
-  const helloWorldApi = async () => {
-    try {
-      const response = await axios.get(`${API}/`);
-      console.log(response.data.message);
-    } catch (e) {
-      console.error(e, `errored out requesting / api`);
-    }
-  };
-
-  useEffect(() => {
-    helloWorldApi();
-  }, []);
-
-  return (
-    <div>
-      <header className="App-header">
-        <a
-          className="App-link"
-          href="https://emergent.sh"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="https://avatars.githubusercontent.com/in/1201222?s=120&u=2686cf91179bbafbc7a71bfbc43004cf9ae1acea&v=4" />
-        </a>
-        <p className="mt-5">Building something incredible ~!</p>
-      </header>
+// Placeholder components for other pages
+const ProjectsPage = () => (
+  <div className="min-h-screen bg-white pt-20 lg:pl-20">
+    <div className="max-w-7xl mx-auto px-4 py-12">
+      <h1 className="text-5xl font-bold text-[#50535B] mb-8">Our Projects</h1>
+      <div className="h-1 w-24 bg-[#CA8A04] mb-12"></div>
+      <p className="text-xl text-[#50535B]">Detailed projects page coming soon...</p>
     </div>
-  );
-};
+  </div>
+);
+
+const ConsultiesPage = () => (
+  <div className="min-h-screen bg-white pt-20 lg:pl-20">
+    <div className="max-w-7xl mx-auto px-4 py-12">
+      <h1 className="text-5xl font-bold text-[#50535B] mb-8">Our Consulties</h1>
+      <div className="h-1 w-24 bg-[#CA8A04] mb-12"></div>
+      <p className="text-xl text-[#50535B]">Detailed consulties page coming soon...</p>
+    </div>
+  </div>
+);
+
+const GalleryPage = () => (
+  <div className="min-h-screen bg-white pt-20 lg:pl-20">
+    <div className="max-w-7xl mx-auto px-4 py-12">
+      <h1 className="text-5xl font-bold text-[#50535B] mb-8">Project Gallery</h1>
+      <div className="h-1 w-24 bg-[#CA8A04] mb-12"></div>
+      <p className="text-xl text-[#50535B]">Detailed gallery page coming soon...</p>
+    </div>
+  </div>
+);
+
+const TestimonialsPage = () => (
+  <div className="min-h-screen bg-white pt-20 lg:pl-20">
+    <div className="max-w-7xl mx-auto px-4 py-12">
+      <h1 className="text-5xl font-bold text-[#50535B] mb-8">Client Reviews</h1>
+      <div className="h-1 w-24 bg-[#CA8A04] mb-12"></div>
+      <p className="text-xl text-[#50535B]">Detailed testimonials page coming soon...</p>
+    </div>
+  </div>
+);
+
+const BlogPage = () => (
+  <div className="min-h-screen bg-white pt-20 lg:pl-20">
+    <div className="max-w-7xl mx-auto px-4 py-12">
+      <h1 className="text-5xl font-bold text-[#50535B] mb-8">Blog & Updates</h1>
+      <div className="h-1 w-24 bg-[#CA8A04] mb-12"></div>
+      <p className="text-xl text-[#50535B]">Detailed blog page coming soon...</p>
+    </div>
+  </div>
+);
+
+const ContactPage = () => (
+  <div className="min-h-screen bg-white pt-20 lg:pl-20">
+    <div className="max-w-7xl mx-auto px-4 py-12">
+      <h1 className="text-5xl font-bold text-[#50535B] mb-8">Contact Us</h1>
+      <div className="h-1 w-24 bg-[#CA8A04] mb-12"></div>
+      <p className="text-xl text-[#50535B]">Detailed contact page coming soon...</p>
+    </div>
+  </div>
+);
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />}>
-            <Route index element={<Home />} />
-          </Route>
-        </Routes>
+        <Navigation />
+        <main className="lg:pl-20">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/projects" element={<ProjectsPage />} />
+            <Route path="/consulties" element={<ConsultiesPage />} />
+            <Route path="/gallery" element={<GalleryPage />} />
+            <Route path="/testimonials" element={<TestimonialsPage />} />
+            <Route path="/blog" element={<BlogPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+          </Routes>
+        </main>
+        <WhatsAppButton />
       </BrowserRouter>
     </div>
   );
