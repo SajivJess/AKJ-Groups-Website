@@ -71,7 +71,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Navigation />
-        <main className="lg:pl-20">
+        <div className="lg:pl-20">
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/projects" element={<ProjectsPage />} />
@@ -81,7 +81,7 @@ function App() {
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/contact" element={<ContactPage />} />
           </Routes>
-        </main>
+        </div>
         <WhatsAppButton />
       </BrowserRouter>
     </div>
