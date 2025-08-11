@@ -1,11 +1,33 @@
 /* Import Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
 
-/* Custom Animations */
-@keyframes fade-in {
+/* Scroll Animations */
+@keyframes slide-in-left {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateX(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-top {
+  from {
+    opacity: 0;
+    transform: translateY(-60px);
   }
   to {
     opacity: 1;
@@ -13,10 +35,10 @@
   }
 }
 
-@keyframes slide-up {
+@keyframes slide-in-bottom {
   from {
     opacity: 0;
-    transform: translateY(40px);
+    transform: translateY(60px);
   }
   to {
     opacity: 1;
@@ -24,112 +46,66 @@
   }
 }
 
-@keyframes fade-in-up {
+@keyframes fade-in-scale {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: scale(0.9);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: scale(1);
   }
 }
 
-@keyframes shimmer {
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
+@keyframes diagonal-slide {
+  from {
+    opacity: 0;
+    transform: translateX(-30px) translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+  }
 }
 
-@keyframes gold-glow {
-  0%, 100% { box-shadow: 0 0 20px rgba(202, 138, 4, 0.3); }
-  50% { box-shadow: 0 0 40px rgba(202, 138, 4, 0.6); }
+/* Animation Classes */
+.animate-slide-in-left {
+  animation: slide-in-left 1s ease-out forwards;
 }
 
-.animate-fade-in {
-  animation: fade-in 1s ease-out forwards;
+.animate-slide-in-right {
+  animation: slide-in-right 1s ease-out forwards;
 }
 
-.animate-slide-up {
-  animation: slide-up 1s ease-out 0.3s forwards;
-  opacity: 0;
+.animate-slide-in-top {
+  animation: slide-in-top 1s ease-out forwards;
 }
 
-.animate-fade-in-up {
-  animation: fade-in-up 0.8s ease-out forwards;
-  opacity: 0;
+.animate-slide-in-bottom {
+  animation: slide-in-bottom 1s ease-out forwards;
 }
 
-/* Typography Overrides */
+.animate-fade-in-scale {
+  animation: fade-in-scale 0.8s ease-out forwards;
+}
+
+.animate-diagonal-slide {
+  animation: diagonal-slide 1s ease-out forwards;
+}
+
+/* Typography */
 .App {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Poppins', sans-serif;
-  font-weight: 700;
+  font-weight: 800;
 }
 
-/* Gold Theme Elements */
-.gold-text {
-  color: #CA8A04;
-}
-
-.gold-bg {
-  background-color: #CA8A04;
-}
-
-.gold-border {
-  border-color: #CA8A04;
-}
-
-.gold-shimmer {
-  background: linear-gradient(90deg, transparent, rgba(202, 138, 4, 0.4), transparent);
-  background-size: 200% 100%;
-  animation: shimmer 2s infinite;
-}
-
-.gold-glow {
-  animation: gold-glow 3s ease-in-out infinite;
-}
-
-/* Custom Hover Effects */
-.hover-lift {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.hover-lift:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-}
-
-/* Diagonal Dividers */
-.diagonal-divider {
-  position: relative;
-  overflow: hidden;
-}
-
-.diagonal-divider::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 60px;
-  background: #CA8A04;
-  transform: skewY(1deg);
-  transform-origin: bottom left;
-}
-
-/* Scroll Animations */
-.scroll-animate {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 0.6s ease;
-}
-
-.scroll-animate.in-view {
-  opacity: 1;
-  transform: translateY(0);
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
 }
 
 /* Custom Scrollbar */
@@ -150,15 +126,112 @@ h1, h2, h3, h4, h5, h6 {
   background: #B8790A;
 }
 
-/* Responsive Typography */
+/* Intersection Observer Animations */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
+}
+
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.animate-on-scroll-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 0.8s ease-out;
+}
+
+.animate-on-scroll-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.animate-on-scroll-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 0.8s ease-out;
+}
+
+.animate-on-scroll-right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Gradient Text Effect */
+.gradient-text {
+  background: linear-gradient(135deg, #CA8A04, #B8790A);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Hover Effects */
+.hover-lift {
+  transition: all 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(202, 138, 4, 0.2);
+}
+
+/* Custom Shapes */
+.diagonal-cut::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(135deg, transparent 50%, white 50%);
+  z-index: 1;
+}
+
+/* Loading Animation */
+@keyframes pulse-gold {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse-gold {
+  animation: pulse-gold 2s ease-in-out infinite;
+}
+
+/* Responsive Design Helpers */
 @media (max-width: 768px) {
   .text-responsive-xl {
-    font-size: 2rem;
-    line-height: 2.5rem;
+    font-size: 2.5rem !important;
+    line-height: 3rem !important;
   }
   
   .text-responsive-2xl {
-    font-size: 2.5rem;
-    line-height: 3rem;
+    font-size: 3rem !important;
+    line-height: 3.5rem !important;
   }
+  
+  .text-responsive-6xl {
+    font-size: 4rem !important;
+    line-height: 4.5rem !important;
+  }
+}
+
+/* Focus States */
+button:focus,
+input:focus,
+textarea:focus {
+  outline: 2px solid #CA8A04;
+  outline-offset: 2px;
+}
+
+/* Selection Color */
+::selection {
+  background-color: #CA8A04;
+  color: white;
 }
