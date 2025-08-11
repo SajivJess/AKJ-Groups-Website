@@ -109,19 +109,19 @@ const HomePage = () => {
         <div className="relative z-10 max-w-6xl mx-auto px-4">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
             <div className="animate-fade-in-up">
-              <div className="text-5xl font-black mb-2">{visibleStats.years}+</div>
+              <div className="text-5xl font-black mb-2">{mockData.stats.yearsInIndustry}+</div>
               <div className="text-xl font-semibold opacity-90">Years Experience</div>
             </div>
             <div className="animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-              <div className="text-5xl font-black mb-2">{visibleStats.sqft}M+</div>
+              <div className="text-5xl font-black mb-2">{mockData.stats.sqftBuilt}+</div>
               <div className="text-xl font-semibold opacity-90">Sqft Built</div>
             </div>
             <div className="animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-              <div className="text-5xl font-black mb-2">{visibleStats.awards}+</div>
+              <div className="text-5xl font-black mb-2">{mockData.stats.awardsWon}+</div>
               <div className="text-xl font-semibold opacity-90">Awards Won</div>
             </div>
             <div className="animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
-              <div className="text-5xl font-black mb-2">{visibleStats.sites}</div>
+              <div className="text-5xl font-black mb-2">{mockData.stats.activeSites}</div>
               <div className="text-xl font-semibold opacity-90">Active Sites</div>
             </div>
           </div>
